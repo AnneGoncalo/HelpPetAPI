@@ -77,7 +77,7 @@ public class EncontroDAO {
             if(encontro.getStatusEncontro())
             {
                 Animal a = encontro.getAnimal();
-                a.setStatusAnimal(true);
+                a.setStatus(true);
                 AnimalDAO.EditarAnimal(a);
             }
             
@@ -146,15 +146,15 @@ public class EncontroDAO {
                 
                 Animal animal = new Animal();
                 animal.setIdAnimal(rs.getInt("Animal.idAnimal"));
-                animal.setNomeAnimal(rs.getString("Animal.nomeAnimal"));
-                animal.setTipoAnimal(rs.getString("Animal.tipoAnimal"));
+                animal.setNome(rs.getString("Animal.nomeAnimal"));
+                animal.setTipo(rs.getString("Animal.tipoAnimal"));
                 animal.setEspecie(rs.getString("Animal.especie"));
                 animal.setRaca(rs.getString("Animal.raca"));
                 animal.setIdade(rs.getString("Animal.idade"));
                 animal.setSexo(rs.getString("Animal.sexo"));
-                animal.setFotoAnimal(rs.getString("fotoAnimal"));
-                animal.setDescricaoAnimal(rs.getString("Animal.descricaoAnimal"));
-                animal.setStatusAnimal(rs.getBoolean("Animal.statusAnimal"));
+                animal.setFoto(rs.getString("fotoAnimal"));
+                animal.setDescricao(rs.getString("Animal.descricaoAnimal"));
+                animal.setStatus(rs.getBoolean("Animal.statusAnimal"));
                 animal.setLocalizacao(rs.getString("Animal.localizacao"));
                 animal.setResponsavel(resp);
                 
@@ -224,15 +224,15 @@ public class EncontroDAO {
                 
                 Animal animal = new Animal();
                 animal.setIdAnimal(rs.getInt("Animal.idAnimal"));
-                animal.setNomeAnimal(rs.getString("Animal.nomeAnimal"));
-                animal.setTipoAnimal(rs.getString("Animal.tipoAnimal"));
+                animal.setNome(rs.getString("Animal.nomeAnimal"));
+                animal.setTipo(rs.getString("Animal.tipoAnimal"));
                 animal.setEspecie(rs.getString("Animal.especie"));
                 animal.setRaca(rs.getString("Animal.raca"));
                 animal.setIdade(rs.getString("Animal.idade"));
                 animal.setSexo(rs.getString("Animal.sexo"));
-                animal.setFotoAnimal(rs.getString("fotoAnimal"));
-                animal.setDescricaoAnimal(rs.getString("Animal.descricaoAnimal"));
-                animal.setStatusAnimal(rs.getBoolean("Animal.statusAnimal"));
+                animal.setFoto(rs.getString("fotoAnimal"));
+                animal.setDescricao(rs.getString("Animal.descricaoAnimal"));
+                animal.setStatus(rs.getBoolean("Animal.statusAnimal"));
                 animal.setLocalizacao(rs.getString("Animal.localizacao"));
                 animal.setResponsavel(resp); // pronto, já mudou
                 
