@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import Modelo.Denuncia;
@@ -17,28 +12,25 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Ana Gonçalo
- */
 public class DenunciaDAO {
     
     public static String CadastrarDenuncia(Denuncia denuncia) throws SQLException
     {
-        System.out.println("denuncia dao");
         Connection conn = Banco.getConexao();
         PreparedStatement pstmt = null;
-        String comandoSql = "INSERT INTO Denuncia(tituloDenuncia, descricaoDenuncia, fotoDenuncia, tipoDenuncia,"
-                + "localizacao) values(?, ?, ?, ?, ?)";
+        String comandoSql = "INSERT INTO Denuncia(tituloDenuncia, tipoDenuncia, "
+                + "descricaoDenuncia, fotoDenuncia, localizacao )"
+                + "values(?, ?, ?, ?, ?)";
         try
         {
             pstmt = conn.prepareStatement(comandoSql);
-            pstmt.setString(1, denuncia.getTituloDenuncia());
-            pstmt.setString(2, denuncia.getDescricaoDenuncia());
-            pstmt.setString(3, denuncia.getFotoDenuncia());
-            pstmt.setString(4, denuncia.getTipoDenuncia());
+            
+            pstmt.setString(1, denuncia.getTitulo());
+            pstmt.setString(2, denuncia.getTipo());
+            pstmt.setString(3, denuncia.getDescricao());
+            pstmt.setString(4, denuncia.getFoto());
             pstmt.setString(5, denuncia.getLocalizacao());
-           
+            pstmt.setDate(6, (Date) denuncia.getCadastro());
             pstmt.executeUpdate();
         }
         catch (SQLException ex) 
@@ -65,10 +57,15 @@ public class DenunciaDAO {
             rs= stmt.executeQuery(sql);
             while(rs.next())
             { 
-                Denuncia a = new Denuncia(rs.getInt("idDenuncia"), rs.getString("tituloDenuncia"), 
-                        rs.getString("descricaoDenuncia"),rs.getString("fotoDenuncia"), rs.getString("tipoDenuncia"), 
-                        rs.getString("dataDenuncia"), rs.getString("localizacao"));
-                lista.add(a);
+                Denuncia d = new Denuncia();
+                d.setIdDenuncia(rs.getInt("idDenuncia"));
+                d.setTitulo(rs.getString("tituloDenuncia"));
+                d.setTipo(rs.getString("tipoDenuncia"));
+                d.setDescricao(rs.getString("descricaoDenuncia"));
+                d.setFoto(rs.getString("fotoDenuncia"));
+                d.setLocalizacao(rs.getString("localizacao"));
+                d.setCadastro(rs.getDate("dataDenuncia"));
+                lista.add(d);
             }
         } 
         catch (SQLException ex) 

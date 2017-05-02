@@ -1,13 +1,24 @@
 package Negocio;
 
+import DAO.AnimalDAO;
 import Modelo.Animal;
 import Modelo.Usuario;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AnimalBL {
     
     public static String CadastrarAnimal(Animal animal){
         
-        //Validações
+        try {
+            //Validações
+
+            AnimalDAO.CadastrarAnimal(animal);
+        } catch (SQLException ex) {
+            Logger.getLogger(AnimalBL.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return "Animal Cadastrado com sucesso!";
     }
@@ -29,6 +40,16 @@ public class AnimalBL {
             return "Tipo inválido";
         
         return "Animal Cadastrado com sucesso!";
+    }
+    
+    public static List<Animal> ListarAnimais(){
+        
+        try {
+            return AnimalDAO.ListarAnimaisNaoAdotados();
+        } catch (SQLException ex) {
+            Logger.getLogger(AnimalBL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
 }

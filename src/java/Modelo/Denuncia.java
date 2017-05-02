@@ -1,36 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
 
 import java.util.Date;
 
-/**
- *
- * @author Ana Gonçalo
- */
 public class Denuncia {
     private int idDenuncia;
-    private String tituloDenuncia;
-    private String descricaoDenuncia;
-    private String fotoDenuncia;
-    private String tipoDenuncia;
-    private String dataDenuncia;
+    private String titulo;
+    private String tipo;
+    private String descricao;
+    private String foto;
     private String localizacao;
+    private Date cadastro;
 
     public Denuncia() {
-    }
-
-    public Denuncia(int idDenuncia, String tituloDenuncia, String descricaoDenuncia, String fotoDenuncia, String tipoDenuncia, String dataDenuncia, String localizacao) {
-        this.idDenuncia = idDenuncia;
-        this.tituloDenuncia = tituloDenuncia;
-        this.descricaoDenuncia = descricaoDenuncia;
-        this.fotoDenuncia = fotoDenuncia;
-        this.tipoDenuncia = tipoDenuncia;
-        this.dataDenuncia = dataDenuncia;
-        this.localizacao = localizacao;
     }
 
     public int getIdDenuncia() {
@@ -41,44 +22,36 @@ public class Denuncia {
         this.idDenuncia = idDenuncia;
     }
 
-    public String getTituloDenuncia() {
-        return tituloDenuncia;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTituloDenuncia(String tituloDenuncia) {
-        this.tituloDenuncia = tituloDenuncia;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public String getDescricaoDenuncia() {
-        return descricaoDenuncia;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setDescricaoDenuncia(String descricaoDenuncia) {
-        this.descricaoDenuncia = descricaoDenuncia;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public String getFotoDenuncia() {
-        return fotoDenuncia;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setFotoDenuncia(String fotoDenuncia) {
-        this.fotoDenuncia = fotoDenuncia;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getTipoDenuncia() {
-        return tipoDenuncia;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setTipoDenuncia(String tipoDenuncia) {
-        this.tipoDenuncia = tipoDenuncia;
-    }
-
-    public String getDataDenuncia() {
-        return dataDenuncia;
-    }
-
-    public void setDataDenuncia(String dataDenuncia) {
-        this.dataDenuncia = dataDenuncia;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public String getLocalizacao() {
@@ -89,7 +62,12 @@ public class Denuncia {
         this.localizacao = localizacao;
     }
 
-    
-    
-    
+    public Date getCadastro() {
+        return cadastro;
+    }
+
+    public void setCadastro(Date cadastro) {
+        this.cadastro = cadastro;
+    }
+
 }
